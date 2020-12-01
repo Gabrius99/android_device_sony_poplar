@@ -34,10 +34,9 @@ How to build Pixel Experience
         <?xml version="1.0" encoding="UTF-8"?>
             <manifest>
                 <project name="whatawurst/android_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="lineage-17.1" />
-                <project name="whatawurst/android_device_sony_common-treble" path="device/sony/common-treble" remote="github" revision="lineage-17.1" />
-                <project name="whatawurst/android_device_sony_yoshino"  path="device/sony/yoshino" remote="github" revision="lineage-17.1" />
-                <project name="Gabrius99/device_sony_poplar" path="device/sony/poplar" remote="github" revision="pe-10" />
-                <project name="Gabrius99/android_vendor_sony_poplar" path="vendor/sony/poplar" remote="github" revision="lineage-17.1" />
+                <project name="whatawurst/android_device_sony_yoshino-common"  path="device/sony/yoshino-common" remote="github" revision="lineage-17.1" />
+                <project name="Gabrius99/android_device_sony_poplar" path="device/sony/poplar" remote="github" revision="pe-10" />
+                <project name="Gabrius99/android_vendor_sony_poplar" path="vendor/sony/poplar" remote="github" revision="q" />
             </manifest>
 
 * Now you have all required sources! Make the ROM!
