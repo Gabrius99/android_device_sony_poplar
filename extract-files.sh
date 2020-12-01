@@ -27,7 +27,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 LINEAGE_ROOT="$MY_DIR"/../../..
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
+HELPER="$LINEAGE_ROOT"/vendor/aosp/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -70,25 +70,5 @@ TWRP_KEYMASTER_SERVICE="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/re
 sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_QSEECOMD"
 sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_GATEKEEPER_SERVICE"
 sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_KEYMASTER_SERVICE"
-
-#
-# Fix product path
-#
-
-DEVICE_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/
-
-function fix_product_path () {
-    sed -i \
-        's/\/system\/framework\//\/system\/product\/framework\//g' \
-        "$DEVICE_ROOT"/"$1"
-}
-
-fix_product_path product/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
-fix_product_path product/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
-fix_product_path product/etc/permissions/com.qualcomm.qti.imscmservice.xml
-fix_product_path product/etc/permissions/embms.xml
-fix_product_path product/etc/permissions/lpa.xml
-fix_product_path product/etc/permissions/qcrilhook.xml
-fix_product_path product/etc/permissions/telephonyservice.xml
 
 "$MY_DIR"/setup-makefiles.sh

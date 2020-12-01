@@ -15,4 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_poplar.mk
+    $(LOCAL_DIR)/aosp_poplar.mk
+    
+COMMON_LUNCH_CHOICES := \
+    aosp_poplar-user \
+    aosp_poplar-userdebug \
+    aosp_poplar-eng
